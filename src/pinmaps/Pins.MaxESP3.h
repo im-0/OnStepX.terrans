@@ -28,10 +28,12 @@
   #endif
 #endif
 
-// Uses default ESP32 I2C GPIO21 (SDA) and GPIO22 (SCL)
+// Specify the ESP32 I2C pins
+#define I2C_SDA_PIN             21
+#define I2C_SCL_PIN             22
 
 // The multi-purpose pins (Aux3..Aux8 can be analog pwm/dac if supported)
-#define AUX2_PIN                4                // ESP8266 RST control, or MISO for Axis1&2, or Axis4 EN support
+#define AUX2_PIN               -1                // ESP8266 RST control, or MISO for Axis1&2, or Axis4 EN support
 #define AUX3_PIN                21               // Home SW for Axis1, or I2C SDA
 #define AUX4_PIN                22               // Home SW for Axis2, or I2C SCL
 #define AUX7_PIN                39               // Limit SW, PPS, etc.
@@ -87,7 +89,7 @@
   #define AXIS1_M3_PIN          AUX2_PIN         // SPI MISO (UART RX)
 #endif
 #define AXIS1_STEP_PIN          18
-#define AXIS1_DIR_PIN           0                // [must be high at boot 0]
+#define AXIS1_DIR_PIN           4                // [must be high at boot 0]
 #ifndef AXIS1_SENSE_HOME_PIN
   #define AXIS1_SENSE_HOME_PIN  AUX3_PIN
 #endif
